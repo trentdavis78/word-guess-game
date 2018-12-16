@@ -3,12 +3,67 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" 
+    integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="assets\css\style.css">
     <title></title>
   </head>
   <body>
+
+
+
+
+
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12 splash" id="splash">
+          <h1>Word Guess Game</h1>
+          <h3>Press any key to continue...</h3>
+        </div>
+    </div>
+  </div>
+    
+      <div class="row game opacity-1" id="game">
+      <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <a class="navbar-brand" href="index.html"><i class="fas fa-football-ball"></i> Word Guess Game</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item">
+                    <span class="nav-link active">Score: <span id="score">0</span></span>
+                  </li>
+                  <li class="nav-item">
+                      <span class="nav-link active">Misses: <span id="miss">0</span></span>
+                    </li>
+                    <li class="nav-item">
+                        <span class="nav-link active">Hints: <span id="hint">0</span></span>
+                      </li>
+                </ul>
+                <span class="navbar-text">
+                    <button onclick="reset()" id="reset" class="btn btn-outline-danger" type="button">Reset Game</button>
+                </span>
+              </div>
+            </nav>
+        <div class="row">
+          <div class="col-12">
+              <p>Game content goes here..</p>
+            </div>
+        </div>
+      </div>
+      </div>
+      
+
+
+
+
+
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
   integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

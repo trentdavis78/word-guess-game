@@ -1,1 +1,33 @@
-
+body {
+    
+}
+.hidden {
+    display: none;
+}
+.opacity-1 {
+    opacity: .1;
+}
+.opacity-f {
+    opacity: 1;
+}
+.splash {
+    position: absolute;
+    top: 25%;   
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    color: black;
+    width: 40rem;
+    height: 20rem;
+    background-color: #eee;
+    z-index: 9999;
+    border-radius: 25px;
+    box-shadow: 10px 10px 20px #ddd;    
+    text-align: center;
+}
+.splash h1 {
+    color: black;
+    margin-top: 6.5rem;
+     
+}
