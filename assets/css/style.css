@@ -3,7 +3,7 @@
 }
 .grass {
     background-image: url(../images/grass.jpg);
-    background-repeat: repeat;    
+    background-repeat: repeat;
 }
 .navbar {
     background: #2b2c2d; /* Old browsers */
@@ -32,7 +32,7 @@ i.fas.fa-football-ball {
 }
 .splash {
     position: absolute;
-    top: 25%;   
+    top: 25%;
     margin-left: auto;
     margin-right: auto;
     left: 0;
@@ -43,20 +43,23 @@ i.fas.fa-football-ball {
     background-color: #eee;
     z-index: 9999;
     border-radius: 25px;
-    box-shadow: 10px 10px 20px #ddd;    
+    box-shadow: 10px 10px 20px #ddd;
     text-align: center;
 }
 .splash h1 {
     color: black;
-    margin-top: 6.5rem;     
+    margin-top: 6.5rem;
+}
+.mh-200 {
+  min-height: 250px;
 }
 div.letters {
-    font-size: 2rem;    
+    font-size: 2rem;
     width: 1.5rem;
     border-bottom: 3px solid #000;
 }
-div.space {    
-    width: 1.5rem;   
+div.space {
+    width: 1.5rem;
 }
 .letters  {
     margin-right: 1rem;
@@ -66,7 +69,7 @@ div.space {
     50% { transform: scale(0.95); }
     to { transform: scale(1); }
   }
-  
+
 .pulse {
 animation-name: pulse;
 animation-duration: 2s;
@@ -78,15 +81,25 @@ animation-iteration-count: infinite;
 }
 .marker {
     font-family: 'Permanent Marker', cursive;
-    font-size: 2rem;
+    font-size: 2.2rem;
     color: #131313;
+}
+.bg-play {
+  background-image: url(../images/play.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
 .letters-picked {
     text-align: center;
+    width: 330px;
+    height: 400px;
+    margin: auto;
 }
 
 .footer {
     background: #000;
     color: #595959;
     text-align: center;
+    min-height: 110px;
 }
