@@ -64,6 +64,22 @@ div.space {
 .letters  {
     margin-right: 1rem;
 }
+.category {
+  background-color: #fff;
+  padding: .3rem;
+  position: absolute;
+  bottom: 60px;
+  width: 200px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border-radius: 5px;
+  border: 2px solid #000;
+  font-family: Roboto;
+  text-transform: uppercase;
+}
 @keyframes pulse {
     from { transform: scale(1); }
     50% { transform: scale(0.95); }
