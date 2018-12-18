@@ -1,8 +1,28 @@
-body {
-    
-}
 .hidden {
     display: none;
+}
+.grass {
+    background-image: url(../images/grass.jpg);
+    background-repeat: repeat;    
+}
+.navbar {
+    background: #2b2c2d; /* Old browsers */
+    background: -moz-linear-gradient(top, #595959 0%, #2b2b2b 76%, #1c1c1c 91%, #131313 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #595959 0%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #595959 0%,#2b2b2b 76%,#1c1c1c 91%,#131313 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#595959', endColorstr='#131313',GradientType=0 ); /* IE6-9 */
+ }
+i.fas.fa-football-ball {
+    color: white;
+}
+.logo-l {
+    font-weight: bold;
+    color: #DD0000;
+}
+.logo-r {
+    font-weight: bold;
+    font-style: italic;
+    color: #fff;
 }
 .opacity-1 {
     opacity: .1;
@@ -28,6 +48,45 @@ body {
 }
 .splash h1 {
     color: black;
-    margin-top: 6.5rem;
-     
+    margin-top: 6.5rem;     
+}
+div.letters {
+    font-size: 2rem;    
+    width: 1.5rem;
+    border-bottom: 3px solid #000;
+}
+div.space {    
+    width: 1.5rem;   
+}
+.letters  {
+    margin-right: 1rem;
+}
+@keyframes pulse {
+    from { transform: scale(1); }
+    50% { transform: scale(0.95); }
+    to { transform: scale(1); }
+  }
+  
+.pulse {
+animation-name: pulse;
+animation-duration: 2s;
+animation-iteration-count: infinite;
+}
+.ba-1 {
+    border: 1px solid #ccc;
+    border-collapse: collapse !important;
+}
+.marker {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 2rem;
+    color: #131313;
+}
+.letters-picked {
+    text-align: center;
+}
+
+.footer {
+    background: #000;
+    color: #595959;
+    text-align: center;
 }

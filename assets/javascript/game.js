@@ -4,6 +4,7 @@ var DOMSplash = document.getElementById('splash');
 var DOMScore = document.getElementById('score');
 var DOMMiss = document.getElementById('miss');
 var DOMHint = document.getElementById('hint');
+var DOMHintButton = document.getElementById('hintButton');
 
 var score = 0;
 var miss = 0;
@@ -15,6 +16,7 @@ document.onkeydown = function(e) {
     DOMSplash.classList.add("hidden");
     DOMGame.classList.remove("opacity-1");
     DOMGame.classList.add("opacity-f");
+    DOMHintButton.classList.add("pulse");
     start();
 }
 

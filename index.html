@@ -7,17 +7,12 @@
     integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Permanent+Marker|Roboto:900" rel="stylesheet">
     <link rel="stylesheet" href="assets\css\style.css">
     <title></title>
   </head>
   <body>
-
-
-
-
-
-
-
+    <!-- begin splash screen -->
     <div class="container">
       <div class="row">
         <div class="col-12 splash" id="splash">
@@ -26,45 +21,96 @@
         </div>
     </div>
   </div>
-    
-      <div class="row game opacity-1" id="game">
+    <!-- end splash screen -->
+
+    <!-- begin header/nav -->
+      <div class="game opacity-1 grass" id="game">
       <div class="container">
           <nav class="navbar navbar-expand-lg navbar-light bg-light">
-              <a class="navbar-brand" href="index.html"><i class="fas fa-football-ball"></i> Word Guess Game</a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav mr-auto">
-                  <li class="nav-item">
-                    <span class="nav-link active">Score: <span id="score">0</span></span>
-                  </li>
-                  <li class="nav-item">
-                      <span class="nav-link active">Misses: <span id="miss">0</span></span>
-                    </li>
-                    <li class="nav-item">
-                        <span class="nav-link active">Hints: <span id="hint">0</span></span>
-                      </li>
-                </ul>
-                <span class="navbar-text">
-                    <button onclick="reset()" id="reset" class="btn btn-outline-danger" type="button">Reset Game</button>
-                </span>
+              <a class="navbar-brand" href="index.html">
+                <i class="fas fa-football-ball"></i>&nbsp;<span class="logo-l">WORD</span><span class="logo-r">GuessGame</span></a>
+          </nav>
+    <!-- end header/nav -->
+    <!-- begin game content -->
+    <div class="container bg-white">
+      <div class="row">
+          <div class="col-12 jumbotron jumbotron-fluid">
+              <div class="container d-flex justify-content-center">
+                <!-- begin letter divs-->
+                  <div class="letters "><span id="letter-1" class="visible">F</span></div>
+                  <div class="letters "><span id="letter-2" class="invisible">U</span></div>
+                  <div class="letters "><span id="letter-3" class="visible">C</span></div>
+                  <div class="letters "><span id="letter-4" class="invisible">K</span></div>     
+                  <div class="space "><span id="letter-4" class="invisible">&nbsp;</span></div>
+                  <div class="letters "><span id="letter-4" class="visible">T</span></div>     
+                  <div class="letters "><span id="letter-5" class="invisible">H</span></div>
+                  <div class="letters "><span id="letter-6" class="visible">E</span></div>
+                  <div class="space "><span id="letter-4" class="invisible">&nbsp;</span></div>    
+                  <div class="letters "><span id="letter-1" class="visible">C</span></div>
+                  <div class="letters "><span id="letter-1" class="visible">O</span></div>
+                  <div class="letters "><span id="letter-5" class="invisible">W</span></div>
+                  <div class="letters "><span id="letter-5" class="visible">B</span></div>
+                  <div class="letters "><span id="letter-1" class="visible">O</span></div>
+                  <div class="letters "><span id="letter-5" class="invisible">Y</span></div>
+                  <div class="letters "><span id="letter-1" class="visible">S</span></div>
+                <!-- end letter divs-->
               </div>
-            </nav>
-        <div class="row">
-          <div class="col-12">
-              <p>Game content goes here..</p>
+          </div>
+       </div>
+       <div class="row">
+          <!-- begin hint button and modal content -->
+          <div id="hintButton" class="col-12 hint-button">
+              <button type="button" class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#hintModal" >
+                  Give Me A Hint! <span class="badge badge-light" id="hint">0</span>
+                  <span class="sr-only">Hints remaining</span>
+                </button>
+          </div>
+          <!-- Modal -->
+          <div class="modal fade" id="hintModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="hintModalLabel">Hint:</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body" id="hintBody">
+                    ...
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>                    
+                  </div>
+                </div>
+              </div>
             </div>
+         </div>
+         <!-- end hint button and modal content -->
+        <div class="row mt-4">
+          <div class="col-lg-6 ba-1" style="min-height: 328px">
+            <div class="marker letters-picked mt-3 p-4">
+              <p>Letters Picked:</p>
+              <p>a e s f t b c o</p>
+            </div>
+          </div>
+          <div class="col-lg-6 ba-1">
+
+          </div>
         </div>
       </div>
+     </div><!-- end game content -->
+     <div class="footer p-2">
+        <div class="container">
+          <div class="row">
+              <div class="col-12">
+                <p>&copy; Copyright 2019</p>
+              </div>
+          </div>
+        </div>
       </div>
-      
-
-
-
-
-
-
+    </div><!-- end opacity-->
+    
+   
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
   integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
