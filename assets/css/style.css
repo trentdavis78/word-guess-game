@@ -16,7 +16,7 @@ i.fas.fa-football-ball {
     color: white;
 }
 .logo-l {
-    font-weight: bold;
+    font-weight: 900 ;
     color: #DD0000;
 }
 .logo-r {
@@ -47,8 +47,20 @@ i.fas.fa-football-ball {
     text-align: center;
 }
 .splash h1 {
-    color: black;
+    color: #000;
     margin-top: 6.5rem;
+    font-weight: 900;
+}
+.italic {
+  font-style: italic;
+}
+.splash img {
+  position: absolute;
+  left: 45px;
+  top: 30px;
+}
+.splash h3 {
+  font-family: 'Bungee', cursive;
 }
 .mh-200 {
   min-height: 250px;
