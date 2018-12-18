@@ -77,7 +77,7 @@ div.space {
   text-align: center;
   border-radius: 5px;
   border: 2px solid #000;
-  font-family: Roboto;
+  font-family: 'Roboto', sans-serif;
   text-transform: uppercase;
 }
 @keyframes pulse {
@@ -112,7 +112,36 @@ animation-iteration-count: infinite;
     height: 400px;
     margin: auto;
 }
+.scoreboard {
+  margin: auto;
+  background: #3f3f3f;
+  height: 200px;
+}
+.home-wrap {
 
+}
+.sb-lbl {
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.score-total, .miss-total, .score-time, .hint-total {
+  font-family: 'Black Ops One', cursive;
+  color: red;
+  background: #000;
+  text-align: center;
+  text-shadow: 1px 1px 1px red;
+  border:3px solid #999;
+}
+.score-total, .miss-total, .score-time {
+  font-size: 50px;
+}
+.hint-total {
+  font-size: 20px;
+  padding: 2px 5px;
+}
 .footer {
     background: #000;
     color: #595959;
