@@ -39,7 +39,7 @@
           <div class="col-12 jumbotron jumbotron-fluid mh-200">
               <div class="container d-flex justify-content-center">
                 <!-- begin letter divs-->
-                  <div class="letters "><span id="letter-1" class="visible">F</span></div>
+                  <div class="letters"><span id="letter-1" class="visible">F</span></div>
                   <div class="letters "><span id="letter-2" class="invisible">U</span></div>
                   <div class="letters "><span id="letter-3" class="visible">C</span></div>
                   <div class="letters "><span id="letter-4" class="invisible">K</span></div>
@@ -64,8 +64,8 @@
             Phrase
           </div>
           <!-- begin hint button and modal content -->
-          <div id="hintButton" class="col-12 hint-button">
-              <button type="button" class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#hintModal" >
+          <div class="col-12 hint-button">
+              <button id="hintButton" type="button" class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#hintModal" disabled>
                   Give Me A Hint!
                   <!-- <span class="badge badge-light" id="hint">0</span> -->
                   <span class="sr-only">Hints remaining</span>
@@ -96,7 +96,7 @@
           <div class="col-lg-6 ba-1 bg-play" >
             <div class="marker letters-picked mt-3 p-4">
               <p>Letters Picked:</p>
-              <p>t n c r f h w b i</p>
+              <p id="letters-picked"></p>
             </div>
           </div>
           <div class="col-lg-6 ba-1 order-first order-sm-first order-md-first order-lg-last">
@@ -104,14 +104,14 @@
               <div class="row d-flex justify-content-center">
                 <div class="home-wrap col-3 mt-4">
                   <div class="sb-lbl">Wins</div>
-                  <div class="score-total">00</div>
+                  <div class="score-total" id="score">99</div>
                 </div>
                 <div class="time-wrap col-5 mt-3">
                   <div class="score-time">00:00</div>
                 </div>
                 <div class="home-wrap col-3 mt-4">
                   <div class="sb-lbl">Misses</div>
-                  <div class="miss-total">10</div>
+                  <div id="miss" class="miss-total">99</div>
               </div>
             </div>
             <div class="row mt-3">
