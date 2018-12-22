@@ -128,9 +128,14 @@ animation-iteration-count: infinite;
     width: 330px;
     height: 400px;
     margin: auto;
+    
 }
 .letters-picked p {
     word-break: break-all;
+    
+}
+#guessedLetters {
+    letter-spacing: .5rem;
 }
 .scoreboard {
   margin: auto;

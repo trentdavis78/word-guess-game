@@ -5,7 +5,7 @@ var puzzles =           // Word list
         "falcons"
     ];
 var puzzleHints = [
-        "Super Bowl LLI Champions",
+        ["Super Bowl LLI Champions", "Greatest Team Ever", "Philadelphia"],
         "Monsters of the Midway",
         "Dirty Birds"
 ];
@@ -23,6 +23,7 @@ var remainingGuesses = 0;       // How many tries the player has left
 var gameStarted = false;        // Flag to tell if the game has started
 var hasFinished = false;        // Flag for 'press any key to try again'     
 var wins = 0;                   // How many wins has the player racked up
+var hints = 3;
 // Reset our game-level variables
 function resetGame() {
     remainingGuesses = allowedMisses;
@@ -39,13 +40,14 @@ function resetGame() {
     for (var i = 0; i < puzzles[puzzleIndex].length; i++) {
         guessingWord.push("_");
     }
-    // update hint
     document.getElementById("category").innerHTML = puzzleCategories[puzzleIndex];
-    document.getElementById("hintBody").innerHTML = puzzleHints[puzzleIndex];
      // Show display
     updateDisplay();
+    
 };
 //  Updates the display on the HTML Page
+
+
 function updateDisplay() {
 
     document.getElementById("score").innerText = wins;
@@ -58,6 +60,7 @@ function updateDisplay() {
     if(remainingGuesses <= 0) {
         hasFinished = true;       
         gameStarted = false;
+        wins = 0;   
         document.getElementById('gameOver-splash').classList.remove("hidden");
         document.getElementById('game').classList.add("opacity-1");
         document.getElementById('game').classList.remove("opacity-f");
@@ -65,6 +68,11 @@ function updateDisplay() {
         document.getElementById('hintButton').classList.remove("pulse");    
         
     }
+    if(hints == 0){
+        setTimeout(function(){  document.getElementById('hintButton').disabled = true }, 1000);         
+        document.getElementById('hintButton').classList.remove("pulse");  
+    }
+    
 };
 document.onkeydown = function(event) {
     // If we finished a game, dump one keystroke and reset.
@@ -147,4 +155,11 @@ function showWin() {
     document.getElementById('hintButton').classList.remove("pulse");    
     gameStarted = false;
     
+}
+function runHint() {  
+        hints--;
+        document.getElementById("hint").innerHTML = hints;
+        // update hint        
+        document.getElementById("hintBody").innerHTML = puzzleHints[puzzleIndex][hints];
+        updateDisplay()
 }
