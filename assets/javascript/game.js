@@ -59,42 +59,35 @@ var puzzleCategories = [
         "NFL MVP Last Names"
         
 ];
-var allowedMisses = 10;            // Maximum number of tries player has
+var allowedMisses = 10;            
 
-var guessedLetters = [];        // Stores the letters the user guessed
-var puzzleIndex;           // Index of the current word in the array
-var guessingWord = [];          // This will be the word we actually build to match the current word
-var remainingGuesses = 0;       // How many tries the player has left
-var gameStarted = false;        // Flag to tell if the game has started
-var hasFinished = false;        // Flag for 'press any key to try again'     
-var wins = 0;                   // How many wins has the player racked up
+var guessedLetters = [];       
+var puzzleIndex;           
+var guessingWord = [];         
+var remainingGuesses = 0;      
+var gameStarted = false;        
+var hasFinished = false;         
+var wins = 0;                   
 var hints = 3;
-// Reset our game-level variables
+// reset game variables
 function resetGame() {
     remainingGuesses = allowedMisses;
     gameStarted = true;
-
-    // Use Math.floor to round the random number down to the nearest whole.
+    // set the puzzleIndex to a random number within our puzzle array
     puzzleIndex = Math.floor(Math.random() * (puzzles.length));
-
-    // Clear out arrays
+    // clear arrays
     guessedLetters = [];
     guessingWord = [];
-
-    // Build the guessing word and clear it out
+    // create our puzzle word with blanks
     for (var i = 0; i < puzzles[puzzleIndex].length; i++) {
         guessingWord.push("_");
     }
     document.getElementById("category").innerHTML = puzzleCategories[puzzleIndex];
-     // Show display
+     // update the HTML
     updateDisplay();
     
 };
-//  Updates the display on the HTML Page
-
-
 function updateDisplay() {
-
     document.getElementById("score").innerText = wins;
     document.getElementById("puzzleContent").innerText = "";
     for (var i = 0; i < guessingWord.length; i++) {
@@ -116,8 +109,7 @@ function updateDisplay() {
     if(hints == 0){
         setTimeout(function(){  document.getElementById('hintButton').disabled = true }, 100);         
         document.getElementById('hintButton').classList.remove("pulse");  
-    }
-    
+    }    
 };
 document.onkeydown = function(event) {
     // If we finished a game, dump one keystroke and reset.
@@ -136,22 +128,17 @@ document.onkeydown = function(event) {
             resetGame();            
             hasFinished = false;
         } else {
-            // Check to make sure a-z was pressed.
+            // Check to make sure a valid letter was pressed
             if(event.keyCode >= 65 && event.keyCode <= 90) {
                 makeGuess(event.key.toLowerCase());
             }
-      }
-    
-
+      }   
 };
-function makeGuess(letter) {
-    
+function makeGuess(letter) {    
     if (remainingGuesses > 0) {
         if (!gameStarted) {
             gameStarted = true;
         }
-
-        // Make sure we didn't use this letter yet
         if (guessedLetters.indexOf(letter) === -1) {
             guessedLetters.push(letter);
             evaluateGuess(letter);
@@ -161,25 +148,17 @@ function makeGuess(letter) {
     updateDisplay();
    
 };
-// This function takes a letter and finds all instances of 
-// appearance in the string and replaces them in the guess word.
+// evaluate letter pressed
 function evaluateGuess(letter) {
-    // Array to store positions of letters in string
     var positions = [];
-
-    // Loop through word finding all instances of guessed letter, store the indicies in an array.
     for (var i = 0; i < puzzles[puzzleIndex].length; i++) {
         if(puzzles[puzzleIndex][i] === letter) {
             positions.push(i);
         }
     }
-
-    // if there are no indicies, remove a guess`
     if (positions.length <= 0) {
         remainingGuesses--;
-
     } else {
-        // Loop through all the indicies and replace the '_' with a letter.
         for(var i = 0; i < positions.length; i++) {
             guessingWord[positions[i]] = letter;
         }
@@ -198,8 +177,7 @@ function showWin() {
     document.getElementById('game').classList.remove("opacity-f");
     document.getElementById('hintButton').disabled = true;
     document.getElementById('hintButton').classList.remove("pulse");    
-    gameStarted = false;
-    
+    gameStarted = false;    
 }
 function runHint() {  
         hints--;
