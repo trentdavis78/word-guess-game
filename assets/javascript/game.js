@@ -1,19 +1,14 @@
 var puzzles =           // Word list
     [
-        "eagles",
-        "bears",
-        "falcons"
+        "Brian_Dawkins"
     ];
 var puzzleHints = [
-        ["Super Bowl LLI Champions", "Greatest Team Ever", "Philadelphia"],
-        "Monsters of the Midway",
-        "Dirty Birds"
+        ["Philadelphia", "NFC East Team", "Super Bowl LLI Champions"]        
 ];
 var puzzleCategories = [
-        "Champions",
-        "Animal Team Names",
-        "NFC South Teams"
-]
+        "Team Name"
+        
+];
 var allowedMisses = 10;            // Maximum number of tries player has
 
 var guessedLetters = [];        // Stores the letters the user guessed
@@ -69,7 +64,7 @@ function updateDisplay() {
         
     }
     if(hints == 0){
-        setTimeout(function(){  document.getElementById('hintButton').disabled = true }, 1000);         
+        setTimeout(function(){  document.getElementById('hintButton').disabled = true }, 100);         
         document.getElementById('hintButton').classList.remove("pulse");  
     }
     
