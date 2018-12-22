@@ -89,6 +89,7 @@ function resetGame() {
 };
 function updateDisplay() {
     document.getElementById("score").innerText = wins;
+    document.getElementById("hint").innerHTML = hints;
     document.getElementById("puzzleContent").innerText = "";
     for (var i = 0; i < guessingWord.length; i++) {
         document.getElementById("puzzleContent").innerText += guessingWord[i];
@@ -99,6 +100,7 @@ function updateDisplay() {
         hasFinished = true;       
         gameStarted = false;
         wins = 0;   
+        hints = 3;
         document.getElementById('gameOver-splash').classList.remove("hidden");
         document.getElementById('game').classList.add("opacity-1");
         document.getElementById('game').classList.remove("opacity-f");
