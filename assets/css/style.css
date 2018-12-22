@@ -30,7 +30,7 @@ i.fas.fa-football-ball {
 .opacity-f {
     opacity: 1;
 }
-.splash {
+.splash, .win-splash, .gameOver-splash {
     position: absolute;
     top: 25%;
     margin-left: auto;
@@ -46,7 +46,7 @@ i.fas.fa-football-ball {
     box-shadow: 10px 10px 20px #ddd;
     text-align: center;
 }
-.splash h1 {
+.splash h1, .win-splash h1, .gameOver-splash h1   {
     color: #000;
     margin-top: 6.5rem;
     font-weight: 900;
@@ -75,6 +75,11 @@ div.space {
 }
 .letters  {
     margin-right: 1rem;
+}
+#puzzleContent {
+    font-size: 4rem;
+    letter-spacing: 1rem;
+    text-transform: capitalize;
 }
 .category {
   background-color: #fff;

@@ -1,76 +1,150 @@
-//variables = solution array, win total, miss total
-var DOMGame = document.getElementById('game');
-var DOMSplash = document.getElementById('splash');
-var DOMScore = document.getElementById('score');
-var DOMMiss = document.getElementById('miss');
-var DOMHint = document.getElementById('hint');
-var DOMHintButton = document.getElementById('hintButton');
-var DOMLetters = document.getElementById('letters-picked');
-var alpha = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-var lettersPicked = [];
+var puzzles =           // Word list
+    [
+        "eagles",
+        "bears",
+        "falcons"
+    ];
+var puzzleHints = [
+        "Super Bowl LLI Champions",
+        "Monsters of the Midway",
+        "Dirty Birds"
+];
+var puzzleCategories = [
+        "Champions",
+        "Animal Team Names",
+        "NFC South Teams"
+]
+var allowedMisses = 10;            // Maximum number of tries player has
 
-var score = 0;
-var miss = 10;
-var hint = 3;
+var guessedLetters = [];        // Stores the letters the user guessed
+var puzzleIndex;           // Index of the current word in the array
+var guessingWord = [];          // This will be the word we actually build to match the current word
+var remainingGuesses = 0;       // How many tries the player has left
+var gameStarted = false;        // Flag to tell if the game has started
+var hasFinished = false;        // Flag for 'press any key to try again'     
+var wins = 0;                   // How many wins has the player racked up
+// Reset our game-level variables
+function resetGame() {
+    remainingGuesses = allowedMisses;
+    gameStarted = true;
 
-var puzzles = ["Eagles", "Brian Dawkins"];
-var categories = ["Team Names", "Players"];
-var hints = ["Super Bowl LLI Champions", "This 2018 HOF inductee played Safety for the Philadelphia Eagles"];
+    // Use Math.floor to round the random number down to the nearest whole.
+    puzzleIndex = Math.floor(Math.random() * (puzzles.length));
 
+    // Clear out arrays
+    guessedLetters = [];
+    guessingWord = [];
 
-// Splash page w/ 'press any key to continue' event listener
-document.onkeydown = function(e) {
-    start();
-    DOMSplash.classList.add("hidden");
-    DOMGame.classList.remove("opacity-1");
-    DOMGame.classList.add("opacity-f");
-    DOMHintButton.disabled = false;
-    DOMHintButton.classList.add("pulse");    
-    // prevent spacebar from scrolling
-    if(e.which == 32) {
-        return false;
+    // Build the guessing word and clear it out
+    for (var i = 0; i < puzzles[puzzleIndex].length; i++) {
+        guessingWord.push("_");
     }
-    return;
-    
-}
+    // update hint
+    document.getElementById("category").innerHTML = puzzleCategories[puzzleIndex];
+    document.getElementById("hintBody").innerHTML = puzzleHints[puzzleIndex];
+     // Show display
+    updateDisplay();
+};
+//  Updates the display on the HTML Page
+function updateDisplay() {
 
-function start() {
-    // reset game to defaults and start game
-    DOMHint.innerHTML = hint;
-    DOMScore.innerHTML = "0" + score;
-    DOMMiss.innerHTML = miss;
-    // pick random number 
-    var random = Math.floor(Math.random() * 3 + 1);
-    console.log(random);
-    
-    document.onkeypress = function(e) {
-        // check if the key pressed is in the alpha array
-        if(alpha.indexOf(e.key) > -1) {
-            // check if the key pressed is already in the lettersPicked array
-            if(lettersPicked.includes(" " + e.key) !== true) {
-                // add key pressed to lettersPicked array
-                lettersPicked.push(" " + e.key);
-                // print key pressed to Letters Picked div
-                DOMLetters.textContent = lettersPicked;
+    document.getElementById("score").innerText = wins;
+    document.getElementById("puzzleContent").innerText = "";
+    for (var i = 0; i < guessingWord.length; i++) {
+        document.getElementById("puzzleContent").innerText += guessingWord[i];
+    }
+    document.getElementById("miss").innerText = remainingGuesses;
+    document.getElementById("guessedLetters").innerText = guessedLetters;
+    if(remainingGuesses <= 0) {
+        hasFinished = true;       
+        gameStarted = false;
+        document.getElementById('gameOver-splash').classList.remove("hidden");
+        document.getElementById('game').classList.add("opacity-1");
+        document.getElementById('game').classList.remove("opacity-f");
+        document.getElementById('hintButton').disabled = true;
+        document.getElementById('hintButton').classList.remove("pulse");    
+        
+    }
+};
+document.onkeydown = function(event) {
+    // If we finished a game, dump one keystroke and reset.
+    if(gameStarted == false ) {
+        document.getElementById('splash').classList.add("hidden");
+        document.getElementById('win-splash').classList.add("hidden");
+        document.getElementById('gameOver-splash').classList.add("hidden");
+        document.getElementById('game').classList.remove("opacity-1");
+        document.getElementById('game').classList.add("opacity-f");
+        document.getElementById('hintButton').disabled = false;
+        document.getElementById('hintButton').classList.add("pulse");    
+        resetGame();
+        updateDisplay();
+    } 
+        if(hasFinished) {            
+            resetGame();            
+            hasFinished = false;
+        } else {
+            // Check to make sure a-z was pressed.
+            if(event.keyCode >= 65 && event.keyCode <= 90) {
+                makeGuess(event.key.toLowerCase());
             }
+      }
+    
+
+};
+function makeGuess(letter) {
+    
+    if (remainingGuesses > 0) {
+        if (!gameStarted) {
+            gameStarted = true;
+        }
+
+        // Make sure we didn't use this letter yet
+        if (guessedLetters.indexOf(letter) === -1) {
+            guessedLetters.push(letter);
+            evaluateGuess(letter);
         }
     }
+    checkWin();
+    updateDisplay();
    
+};
+// This function takes a letter and finds all instances of 
+// appearance in the string and replaces them in the guess word.
+function evaluateGuess(letter) {
+    // Array to store positions of letters in string
+    var positions = [];
+
+    // Loop through word finding all instances of guessed letter, store the indicies in an array.
+    for (var i = 0; i < puzzles[puzzleIndex].length; i++) {
+        if(puzzles[puzzleIndex][i] === letter) {
+            positions.push(i);
+        }
+    }
+
+    // if there are no indicies, remove a guess`
+    if (positions.length <= 0) {
+        remainingGuesses--;
+
+    } else {
+        // Loop through all the indicies and replace the '_' with a letter.
+        for(var i = 0; i < positions.length; i++) {
+            guessingWord[positions[i]] = letter;
+        }
+    }
+};
+function checkWin() {
+    if(guessingWord.indexOf("_") === -1) {
+        wins++;
+        hasFinished = true;
+        showWin();
+    }
+};
+function showWin() {
+    document.getElementById('win-splash').classList.remove("hidden");
+    document.getElementById('game').classList.add("opacity-1");
+    document.getElementById('game').classList.remove("opacity-f");
+    document.getElementById('hintButton').disabled = true;
+    document.getElementById('hintButton').classList.remove("pulse");    
+    gameStarted = false;
     
-
-}
-
-// onkeypress event function --> check if letter pressed is in the solution,
-// if it is, show letter, if not increment miss total
-
-// check if miss total is < 10, if so end game
-// check if solved, if so end game
-// else fire onkeypress event function again
-
-//game reset function
-function reset() {
-    score = 0;
-    miss = 0;
-    hint = 3;
-    DOMHint.innerHTML = hint;
 }
