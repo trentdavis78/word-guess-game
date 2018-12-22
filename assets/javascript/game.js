@@ -1,12 +1,62 @@
 var puzzles =           // Word list
     [
-        "Brian_Dawkins"
+        "eagles",
+        "cowboys",
+        "giants",
+        "redskins",
+        "patriots",
+        "bills",
+        "jets",
+        "dolphins",
+        "brady",
+        "manning",
+        "sanders",
+        "rodgers",
+        "davis",
+        "young",
+        "rice",
+        "faulk"
+
+
     ];
 var puzzleHints = [
-        ["Philadelphia", "NFC East Team", "Super Bowl LLI Champions"]        
+        ["Philadelphia", "NFC East Team", "Super Bowl LII Champions"],
+        ["Dallas", "NFC East Team", "Super Bowl XXX Champions"],
+        ["New York", "NFC East Team", "Super Bowl XLVI Champions"],
+        ["Washington", "NFC East Team", "Super Bowl XXVI Champions"],
+        ["New England", "AFC East Team", "Super Bowl LI Champions"],
+        ["Buffalo", "AFC East Team", "Lost 52-17 in a Super Bowl"],
+        ["New York", "AFC East Team", "Super Bowl III Champions"],
+        ["Miami", "AFC East Team", "Super Bowl VIII Champions"],
+        ["Tom", "Patriots QB", "2007, 2010, 2017 NFL MVP"],
+        ["Peyton", "Colts QB", "2004, 2008, 2009 NFL MVP"],
+        ["Barry", "Detroit RB", "1997 NFL MVP"],
+        ["Aaron", "Packers QB", "2011, 2014 NFL MVP"],
+        ["Terrell", "Broncos RB", "1998 NFL MVP"],
+        ["Steve", "49ers QB", "1992, 1994 NFL MVP"],
+        ["Jerry", "49ers WR", "1987 NFL MVP"],
+        ["Marshall", "Rams RB", "2000, 2001 NFL MVP"]
+
+
+
 ];
 var puzzleCategories = [
-        "Team Name"
+        "NFL Team Mascots",
+        "NFL Team Mascots",
+        "NFL Team Mascots",
+        "NFL Team Mascots",
+        "NFL Team Mascots",
+        "NFL Team Mascots",
+        "NFL Team Mascots",
+        "NFL Team Mascots",
+        "NFL MVP Last Names",
+        "NFL MVP Last Names",
+        "NFL MVP Last Names",
+        "NFL MVP Last Names",
+        "NFL MVP Last Names",
+        "NFL MVP Last Names",
+        "NFL MVP Last Names",
+        "NFL MVP Last Names"
         
 ];
 var allowedMisses = 10;            // Maximum number of tries player has
