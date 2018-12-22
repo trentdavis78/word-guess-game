@@ -39,14 +39,14 @@ var puzzleHints = [
 ];
 // puzzle categories
 var puzzleCategories = [
-        "NFL Team Mascots",
-        "NFL Team Mascots",
-        "NFL Team Mascots",
-        "NFL Team Mascots",
-        "NFL Team Mascots",
-        "NFL Team Mascots",
-        "NFL Team Mascots",
-        "NFL Team Mascots",
+        "NFL Team Names",
+        "NFL Team Names",
+        "NFL Team Names",
+        "NFL Team Names",
+        "NFL Team Names",
+        "NFL Team Names",
+        "NFL Team Names",
+        "NFL Team Names",
         "NFL MVP Last Names",
         "NFL MVP Last Names",
         "NFL MVP Last Names",
@@ -180,7 +180,7 @@ function evaluateGuess(letter) {
             positions.push(i);
         }
     }
-    
+
     if (positions.length <= 0) {
         remainingGuesses--;
     } else {
